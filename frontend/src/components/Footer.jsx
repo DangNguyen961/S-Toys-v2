@@ -17,6 +17,8 @@ const Footer = () => {
     }
   };
 
+  const currentYear = new Date().getFullYear();
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -31,7 +33,7 @@ const Footer = () => {
       }`}
     >
       <div className="container mx-auto text-center">
-        <p>&copy; 2024 S-TOYS. All rights reserved.</p>
+        <p>&copy; {currentYear} S-TOYS. All rights reserved.</p>
       </div>
     </footer>
   );
