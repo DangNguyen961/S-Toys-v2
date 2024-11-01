@@ -10,6 +10,8 @@ import Register from "../pages/account/Register";
 import AdminLayout from "../layouts/AdminLayout";
 import AProduct from "../pages/admin/AProduct";
 import Cart from "../pages/cart/Cart";
+import ProductDetail from "../pages/product/ProductDetail";
+import ErrorPage from "../pages/error/Error";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -19,6 +21,8 @@ const router = createBrowserRouter(
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="cart" element={<Cart />} />
+        <Route path="product/:id" element={<ProductDetail />} />
+        <Route path="*" element={<ErrorPage />} />
       </Route>
       <Route path="admin" element={<AdminLayout />}>
         <Route path="product" element={<AProduct />} />

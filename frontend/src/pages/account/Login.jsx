@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center h-screen bg-gray-100">
       <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <h2 className="text-2xl font-mono font-bold mb-4">Login</h2>
         <form>
@@ -37,17 +37,17 @@ const Login = () => {
           </div>
           <div className="flex items-center justify-between">
             <button
-              className="font-mono flex justify-center items-center gap-2 py-2 px-4 bg-[#74CEB7] text-gray-800 font-bold border  rounded-md ease-in-out duration-150 shadow-slate-600 hover:bg-[#3caa8e] hover:text-white lg:m-0 md:px-6"
+              className="font-mono flex justify-center items-center gap-2 py-2 px-4 bg-gradient-to-r from-[#74CEB7] to-[#3caa8e] text-gray-800 font-bold border border-transparent rounded-md ease-in-out duration-200 shadow-lg shadow-slate-400/50 hover:shadow-xl hover:bg-gradient-to-r hover:from-[#3caa8e] hover:to-[#2d8f75] hover:text-white transform hover:scale-105 lg:m-0 md:px-6"
               type="button"
             >
               Sign In
             </button>
-            <a
+            {/* <a
               className="inline-block align-baseline font-bold font-mono text-sm ml-1 text-[#74CEB7] hover:text-[#3caa8e]"
               href="#"
             >
               Forgot Password?
-            </a>
+            </a> */}
           </div>
           <div className="mt-4">
             <p className="text-sm font-mono text-gray-600">

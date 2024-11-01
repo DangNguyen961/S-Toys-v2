@@ -1,8 +1,19 @@
-import products from "../../products";
 import { data } from "autoprefixer";
-import Product from "../../components/Product";
+import Product from "../../components/Product.jsx";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const IntroProduct = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const { data } = await axios.get("/api/products");
+      setProducts(data);
+    };
+    fetchProducts();
+  }, []);
+
   return (
     <div className="mb-12 px-4">
       <div className="font-mono text-center mb-10 max-w-[600px] mx-auto">
@@ -21,20 +32,14 @@ const IntroProduct = () => {
           <div
             data-aos="fade-up"
             data-aos-delay={data.aosDelay}
-            key={data.id}
+            key={product._id}
             className="bg-white p-4 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl"
           >
             <Product product={product} />
           </div>
         ))}
       </div>
-      <div data-aos="fade-up" className="flex justify-center ">
-        {/* <Link to="/products">
-          <button className="font-mono mt-5 gap-2 py-2 px-4 bg-[#74CEB7] text-gray-800 font-bold border  rounded-md ease-in-out duration-150 shadow-slate-600 hover:bg-[#3caa8e] hover:text-white lg:m-0 md:px-6">
-            View All Products
-          </button>
-        </Link> */}
-      </div>
+      <div data-aos="fade-up" className="flex justify-center "></div>
     </div>
   );
 };
