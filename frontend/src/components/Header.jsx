@@ -2,12 +2,15 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./Header.css";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const [searchVisible, setSearchVisible] = useState(false);
   const toggleSearch = () => {
     setSearchVisible(!searchVisible);
   };
+
+  const { cartItems } = useSelector((state) => state.cart);
 
   return (
     <div>
@@ -19,7 +22,7 @@ const Header = () => {
               className="flex items-center font-bold text-xl text-white font-mono no-underline"
             >
               <img
-                src="/image/logo.png"
+                src="/image/download.png"
                 alt="S-TOYS Logo"
                 className="inline-block h-8 mr-2 rounded-full"
               />
@@ -55,9 +58,11 @@ const Header = () => {
               className="ml-4 font-semibold font-mono no-underline text-lg text-white transition duration-200 ease-in-out relative before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-[2px] before:bg-white before:transition-all before:duration-300 hover:before:w-full hover:text-[#74CEB7]"
             >
               Cart
-              <span className="count flex items-center justify-center absolute top-[-6px] right-[-4px] bg-[#ea2b0f] text-white text-xs font-bold rounded-full w-[20px] h-[20px] shadow-md ring-1 hover:scale-110 transform transition duration-200 ease-in-out">
-                1
-              </span>
+              {cartItems.length > 0 && (
+                <span className="flex items-center justify-center absolute top-[-11px] right-[-10px] bg-[#ea2b0f] text-white font-mono text-xs font-bold rounded-full w-[20px] h-[20px] shadow-md ring-1 hover:scale-110 transform transition duration-200 ease-in-out">
+                  {cartItems.reduce((x, y) => x + y.quantity, 0)}
+                </span>
+              )}
             </Link>
             <Link
               to="/login"
