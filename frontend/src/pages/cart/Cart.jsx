@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import Message from "../../components/Message";
-import { addToCart } from "../../slices/cartSlice";
+import { addToCart, removeItemFromCart } from "../../slices/cartSlice";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ const Cart = () => {
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
 
-  const shippingCost = 10.0; // Define the shipping cost
+  const shippingCost = 10.0; // Phí ship cố định
 
   // Tổng chi phí sản phẩm trong giỏ hàng
   const itemsTotal = cartItems.reduce(
@@ -24,6 +24,10 @@ const Cart = () => {
 
   const addToCartHandler = async (product, quantity) => {
     dispatch(addToCart({ ...product, quantity }));
+  };
+
+  const removeFromCartHandler = async (id) => {
+    dispatch(removeItemFromCart(id));
   };
 
   return (
@@ -83,9 +87,8 @@ const Cart = () => {
                       {item.brand}
                     </span>
                     <a
-                      href="#"
-                      className="no-underline font-semibold font-mono hover:text-red-600 text-gray-500 text-sm transition-colors duration-300 hover:scale-105"
-                      // onClick={() => dispatch(removeFromCart(item.id))}
+                      onClick={() => removeFromCartHandler(item._id)}
+                      className="text-red-600 hover:text-red-800 no-underline cursor-pointer font-mono text-sm transition-transform duration-300 transform hover:scale-105 p-1 rounded focus:outline-none focus:ring-2 focus:ring-red-500"
                     >
                       Remove
                     </a>
@@ -148,6 +151,7 @@ const Cart = () => {
             <button
               type="button"
               disabled={cartItems.length === 0}
+              onClick={() => navigate("/login?redirect=shipping")}
               className="bg-indigo-500 hover:bg-indigo-600 active:bg-indigo-700 font-mono transition-transform duration-300 transform hover:scale-105 font-semibold py-3 text-sm text-white uppercase w-full rounded shadow-lg hover:shadow-xl"
             >
               Checkout
