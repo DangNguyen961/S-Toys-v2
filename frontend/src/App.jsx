@@ -4,6 +4,8 @@ import router from "./router";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import React from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   React.useEffect(() => {
@@ -18,6 +20,7 @@ const App = () => {
     <>
       <RouterProvider router={router} />
       <Toaster position="top-center" />
+      <ToastContainer position="top-center" className="font-semibold" />
     </>
   );
 };

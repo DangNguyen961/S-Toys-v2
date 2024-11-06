@@ -1,8 +1,12 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "./Header.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { NavDropdown } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
+import { useLogoutMutation } from "../slices/usersApiSlice.js";
+import { logout } from "../slices/authSlice.js";
 
 const Header = () => {
   const [searchVisible, setSearchVisible] = useState(false);
@@ -10,7 +14,22 @@ const Header = () => {
     setSearchVisible(!searchVisible);
   };
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const { cartItems } = useSelector((state) => state.cart);
+  const { userInfo } = useSelector((state) => state.auth);
+
+  const [logoutMutation] = useLogoutMutation();
+  const logoutHandler = async () => {
+    try {
+      await logoutMutation().unwrap();
+      dispatch(logout());
+      navigate("/login");
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div>
@@ -64,12 +83,29 @@ const Header = () => {
                 </span>
               )}
             </Link>
-            <Link
-              to="/login"
-              className="ml-4 font-semibold font-mono no-underline text-lg text-white transition duration-200 ease-in-out relative before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-[2px] before:bg-white before:transition-all before:duration-300 hover:before:w-full hover:text-[#74CEB7]"
-            >
-              Login
-            </Link>
+            {userInfo ? (
+              <NavDropdown
+                className="ml-4 font-semibold font-mono no-underline text-lg text-white transition duration-200 ease-in-out relative before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-[2px] before:bg-white before:transition-all before:duration-300 hover:before:w-full hover:text-[#74CEB7]"
+                title={userInfo.name}
+                id="username"
+              >
+                <LinkContainer to="/profile" className="no-underline">
+                  <NavDropdown.Item className="font-mono">
+                    Profile
+                  </NavDropdown.Item>
+                </LinkContainer>
+                <NavDropdown.Item onClick={logoutHandler} className="font-mono">
+                  Logout
+                </NavDropdown.Item>
+              </NavDropdown>
+            ) : (
+              <Link
+                to="/login"
+                className="ml-4 font-semibold font-mono no-underline text-lg text-white transition duration-200 ease-in-out relative before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-[2px] before:bg-white before:transition-all before:duration-300 hover:before:w-full hover:text-[#74CEB7]"
+              >
+                Login
+              </Link>
+            )}
           </div>
         </div>
       </nav>
