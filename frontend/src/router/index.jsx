@@ -13,6 +13,8 @@ import Cart from "../pages/cart/Cart";
 import ProductDetail from "../pages/product/ProductDetail";
 import ErrorPage from "../pages/error/Error";
 import Profile from "../pages/account/Profile";
+import Shipping from "../pages/shipping/Shipping";
+import PrivateRoute from "../components/PrivateRoute";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,6 +27,9 @@ const router = createBrowserRouter(
         <Route path="product/:id" element={<ProductDetail />} />
         <Route path="profile" element={<Profile />} />
         <Route path="*" element={<ErrorPage />} />
+        <Route path="" element={<PrivateRoute />}>
+          <Route path="shipping" element={<Shipping />} />
+        </Route>
       </Route>
       <Route path="admin" element={<AdminLayout />}>
         <Route path="product" element={<AProduct />} />
