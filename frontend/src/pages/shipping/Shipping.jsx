@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { saveShippingAddress } from "../../slices/cartSlice";
+import Checkout from "../../components/Checkout";
 
 const Shipping = () => {
   const cart = useSelector((state) => state.cart);
@@ -25,6 +26,7 @@ const Shipping = () => {
 
   return (
     <div className="min-h-screen flex flex-col justify-center items-center bg-gray-100 p-6">
+      <Checkout step1 step2 />
       <h2 className="text-2xl font-bold font-mono text-black mb-6 drop-shadow-md">
         Shipping Information
       </h2>
