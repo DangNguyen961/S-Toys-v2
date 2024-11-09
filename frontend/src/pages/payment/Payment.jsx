@@ -29,7 +29,7 @@ const Payment = () => {
     <div className="min-h-screen bg-gray-100 py-8">
       <Checkout step1 step2 step3 />
       <div className="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg">
-        <h2 className="text-3xl font-semibold text-center text-gray-800 mb-6 drop-shadow-md">
+        <h2 className="text-3xl font-mono font-semibold text-center text-gray-800 mb-6 drop-shadow-md">
           Payment Method
         </h2>
         <form className="space-y-6" onSubmit={handleSubmit}>

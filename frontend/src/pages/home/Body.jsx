@@ -4,7 +4,7 @@ import IntroProduct from "./IntroProduct";
 const Body = () => {
   return (
     <div>
-      <div className="flex flex-col items-center justify-center h-screen bg-[#a1decf]">
+      <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-r from-blue-200 to-teal-100">
         <h1
           data-aos="zoom-in"
           data-aos-duration="500"

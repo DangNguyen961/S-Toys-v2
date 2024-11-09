@@ -12,7 +12,7 @@ const Intro = () => {
         className="flex flex-col md:flex-row relative border-l border-black"
       >
         <li className="mb-4 ml-4 mt-4">
-          <div className="absolute w-3 h-3 bg-[#0ea45c] rounded-full mt-1.5 -left-1.5 border-white" />
+          <div className="absolute w-3 h-3 bg-blue-300 rounded-full mt-1.5 -left-1.5 border-white" />
           <p className="flex flex-wrap gap-4 flex-row items-center justify-start text-xs md:text-sm">
             <span className="inline-block px-2 py-1 text-xl font-bold font-mono text-black ">
               Product Categories
@@ -23,7 +23,7 @@ const Intro = () => {
             (e.g., educational, tech, soft toys, etc.), making it easy for
             customers to find what they are looking for.
           </p>
-          <div className="absolute w-3 h-3 bg-[#0ea45c] rounded-full mt-1.5 -left-1.5 border-black" />
+          <div className="absolute w-3 h-3 bg-blue-300 rounded-full mt-1.5 -left-1.5 border-black" />
           <p className="flex flex-wrap gap-4 flex-row items-center justify-start text-xs md:text-sm">
             <span className="inline-block px-2 py-1 text-xl font-bold font-mono text-black ">
               User Experience
@@ -34,7 +34,7 @@ const Intro = () => {
             allowing customers to search for toys, filter options by price,
             brand, or theme, and easily navigate the checkout process.
           </p>
-          <div className="absolute w-3 h-3 bg-[#0ea45c] rounded-full mt-1.5 -left-1.5 border-black" />
+          <div className="absolute w-3 h-3 bg-blue-300 rounded-full mt-1.5 -left-1.5 border-black" />
           <p className="flex flex-wrap gap-4 flex-row items-center justify-start text-xs md:text-sm">
             <span className="inline-block px-2 py-1 text-xl font-bold font-mono text-black ">
               Payment and Shipping
@@ -46,7 +46,7 @@ const Intro = () => {
             shipping services, often including both local and international
             options.
           </p>
-          <div className="absolute w-3 h-3 bg-[#0ea45c] rounded-full mt-1.5 -left-1.5 border-black" />
+          <div className="absolute w-3 h-3 bg-blue-300 rounded-full mt-1.5 -left-1.5 border-black" />
           <p className="flex flex-wrap gap-4 flex-row items-center justify-start text-xs md:text-sm">
             <span className="inline-block px-2 py-1 text-xl font-bold font-mono text-black ">
               Customer Reviews and Ratings
@@ -56,7 +56,7 @@ const Intro = () => {
             To help buyers make informed decisions, web shops often include
             product reviews and ratings from other customers.
           </p>
-          <div className="absolute w-3 h-3 bg-[#0ea45c] rounded-full mt-1.5 -left-1.5 border-black" />
+          <div className="absolute w-3 h-3 bg-blue-300 rounded-full mt-1.5 -left-1.5 border-black" />
           <p className="flex flex-wrap gap-4 flex-row items-center justify-start text-xs md:text-sm">
             <span className="inline-block px-2 py-1 text-xl font-bold font-mono text-black ">
               Promotions and Discounts
@@ -66,7 +66,7 @@ const Intro = () => {
             Online toy shops frequently offer seasonal sales, bundle deals, or
             loyalty programs to attract and retain customers.
           </p>
-          <div className="absolute w-3 h-3 bg-[#0ea45c] rounded-full mt-1.5 -left-1.5 border-black" />
+          <div className="absolute w-3 h-3 bg-blue-300 rounded-full mt-1.5 -left-1.5 border-black" />
           <p className="flex flex-wrap gap-4 flex-row items-center justify-start text-xs md:text-sm">
             <span className="inline-block px-2 py-1 text-xl font-bold font-mono text-black ">
               Parental Resources

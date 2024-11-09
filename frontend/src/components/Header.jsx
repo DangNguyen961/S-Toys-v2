@@ -33,7 +33,7 @@ const Header = () => {
 
   return (
     <div>
-      <nav className="bg-[#10b465]">
+      <nav className="w-full font-mono py-2 bg-gradient-to-r from-blue-500 to-teal-400 text-white font-semibold text-base shadow-lg hover:from-teal-400 hover:to-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-200">
         <div className="container mx-auto flex items-center justify-between py-4 px-6">
           <div className="flex items-center">
             <Link
@@ -51,7 +51,7 @@ const Header = () => {
           <div className="flex items-center">
             <button
               onClick={toggleSearch}
-              className="font-mono flex justify-center items-center gap-2 px-3 py-2 bg-gradient-to-r from-[#74CEB7] to-[#3caa8e] text-gray-800 font-bold rounded-md transition duration-200 shadow-lg hover:shadow-xl hover:bg-gradient-to-r hover:from-[#3caa8e] hover:to-[#2d8f75] hover:text-white transform hover:scale-105"
+              className="w-full font-mono gap-2 px-3 py-2 bg-gradient-to-r from-blue-300 to-teal-200 text-black font-semibold text-base rounded-md shadow-lg hover:from-teal-200 hover:to-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-200"
             >
               {searchVisible ? (
                 <i className="bi bi-x-lg"></i>

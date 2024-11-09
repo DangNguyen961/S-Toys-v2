@@ -9,7 +9,7 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
         <div className="flex-1 text-center">
           {step1 ? (
             <Link className="no-underline" to="/login">
-              <div className="font-mono flex items-center justify-center bg-[#10b465] text-white font-semibold px-4 py-2 rounded-full shadow-md transition duration-200 hover:bg-green-600">
+              <div className="font-mono flex items-center justify-center bg-gradient-to-r from-blue-500 to-teal-400 text-white font-semibold px-4 py-2 rounded-full shadow-md transition duration-200 hover:bg-green-600">
                 Login
               </div>
             </Link>
@@ -24,7 +24,7 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
         <div className="flex-1 text-center">
           {step2 ? (
             <Link className="no-underline" to="/shipping">
-              <div className="font-mono flex items-center justify-center bg-[#10b465] text-white font-semibold px-4 py-2 rounded-full shadow-md transition duration-200 hover:bg-green-600">
+              <div className="font-mono flex items-center justify-center bg-gradient-to-r from-blue-500 to-teal-400 text-white font-semibold px-4 py-2 rounded-full shadow-md transition duration-200 hover:bg-green-600">
                 Shipping
               </div>
             </Link>
@@ -39,7 +39,7 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
         <div className="flex-1 text-center">
           {step3 ? (
             <Link className="no-underline" to="/payment">
-              <div className="font-mono flex items-center justify-center bg-[#10b465] text-white font-semibold px-4 py-2 rounded-full shadow-md transition duration-200 hover:bg-green-600">
+              <div className="font-mono flex items-center justify-center bg-gradient-to-r from-blue-500 to-teal-400 text-white font-semibold px-4 py-2 rounded-full shadow-md transition duration-200 hover:bg-green-600">
                 Payment
               </div>
             </Link>
@@ -54,7 +54,7 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
         <div className="flex-1 text-center">
           {step4 ? (
             <Link className="no-underline" to="/order">
-              <div className="font-mono flex items-center justify-center bg-[#10b465] text-white font-semibold px-4 py-2 rounded-full shadow-md transition duration-200 hover:bg-green-600">
+              <div className="font-mono flex items-center justify-center bg-gradient-to-r from-blue-500 to-teal-400 text-white font-semibold px-4 py-2 rounded-full shadow-md transition duration-200 hover:bg-green-600">
                 Order
               </div>
             </Link>

@@ -28,7 +28,7 @@ const Footer = () => {
 
   return (
     <footer
-      className={`bg-[#10b465] py-4 text-white font-bold font-mono fixed bottom-0 w-full transition-opacity duration-1000 ${
+      className={`w-full font-mono py-2 bg-gradient-to-r from-blue-500 to-teal-400 text-white font-semibold text-base shadow-lg hover:from-teal-400 hover:to-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-200 ${
         isVisible ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >

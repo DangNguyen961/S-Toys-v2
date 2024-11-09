@@ -5,6 +5,7 @@ import Loader from "../../components/Loader";
 import Message from "../../components/Message";
 import { addToCart } from "../../slices/cartSlice.js";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 
 const ProductDetail = () => {
   const { id: productId } = useParams();
@@ -22,7 +23,7 @@ const ProductDetail = () => {
 
   const addToCartHandler = () => {
     dispatch(addToCart({ ...product, quantity }));
-    navigate("/cart");
+    toast.success("Add to cart successfully!");
   };
 
   return (
