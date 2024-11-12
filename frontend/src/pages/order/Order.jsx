@@ -22,25 +22,28 @@ const Order = () => {
   console.log(order);
 
   const { userInfo } = useSelector((state) => state.auth);
-  const [payOrder, { isLoading: loadingPayPal }] = usePayOrderMutation();
+  const [payOrder, { isLoading: loadingPay }] = usePayOrderMutation();
   const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
   const {
     data: paypal,
-    isLoading: loadingPaypal,
+    isLoading: loadingPayPal,
     error: errorPayPal,
   } = useGetPayPalClientIdQuery();
 
   useEffect(() => {
-    if (!errorPayPal && !loadingPayPal && paypal && paypal.clientId) {
+    if (!errorPayPal && !loadingPayPal && paypal.clientId) {
       // Kiểm tra paypal có giá trị và có clientId không để load script paypal
       const loadPaypalScript = async () => {
-        paypalDispatch({
-          type: "resetOptions",
-          value: {
-            "client-id": paypal.clientId,
-            currency: "USD",
+        paypalDispatch(
+          {
+            type: "resetOptions",
+            value: {
+              "client-id": paypal.clientId,
+              currency: "USD",
+            },
           },
-        });
+          [errorPayPal, loadingPayPal, order, paypal, paypalDispatch]
+        );
         paypalDispatch({ type: "setLoadingStatus", value: "pending" });
       };
       if (order && !order.isPaid) {
@@ -190,7 +193,7 @@ const Order = () => {
       <div className="mt-8">
         {!order.isPaid && (
           <div>
-            {loadingPayPal && <Loader />}
+            {loadingPay && <Loader />}
 
             {isPending ? (
               <Loader />
