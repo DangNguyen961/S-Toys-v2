@@ -86,12 +86,12 @@ const Cart = () => {
                     <span className="text-[#001b5e] font-mono text-xs">
                       {item.brand}
                     </span>
-                    <a
+                    <p
                       onClick={() => removeFromCartHandler(item._id)}
                       className="text-red-600 hover:text-red-800 no-underline cursor-pointer font-mono text-sm transition-transform duration-300 transform hover:scale-105 p-1 rounded focus:outline-none focus:ring-2 focus:ring-red-500"
                     >
                       Remove
-                    </a>
+                    </p>
                   </div>
                 </div>
                 <div className="flex justify-center w-1/5">

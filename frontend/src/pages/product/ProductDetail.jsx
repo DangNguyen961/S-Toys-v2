@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useGetProductDetailsQuery } from "../../slices/productsApiSlice";
 import Loader from "../../components/Loader";
 import Message from "../../components/Message";
@@ -11,7 +11,6 @@ const ProductDetail = () => {
   const { id: productId } = useParams();
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const {
     data: product,

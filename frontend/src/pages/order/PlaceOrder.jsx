@@ -129,7 +129,7 @@ const Order = () => {
                 disabled={cart.cartItems.length === 0}
                 onClick={orderHandler}
               >
-                Order
+                Place Order
               </button>
               {isLoading && <Loader />}
             </div>
