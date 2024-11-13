@@ -106,6 +106,23 @@ const Header = () => {
                 Login
               </Link>
             )}
+            {userInfo && userInfo.isAdmin && (
+              <NavDropdown
+                title="Admin"
+                id="adminmenu"
+                className="ml-4 font-semibold font-mono no-underline text-lg text-white transition duration-200 ease-in-out relative before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-[2px] before:bg-white before:transition-all before:duration-300 hover:before:w-full hover:text-[#74CEB7]"
+              >
+                <LinkContainer to="/admin/userlist">
+                  <NavDropdown.Item>Users</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to="/admin/productlist">
+                  <NavDropdown.Item>Products</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to="/admin/orderlist">
+                  <NavDropdown.Item>Orders</NavDropdown.Item>
+                </LinkContainer>
+              </NavDropdown>
+            )}
           </div>
         </div>
       </nav>

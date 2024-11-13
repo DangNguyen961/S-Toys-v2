@@ -138,10 +138,11 @@ const Profile = () => {
             </div>
             <button
               type="submit"
-              className="w-full bg-blue-500 text-white font-semibold p-2 rounded hover:bg-blue-600 transition duration-200"
+              className="w-full bg-gradient-to-r from-blue-400 to-blue-500 text-white font-semibold p-2 rounded-lg shadow-lg hover:from-blue-500 hover:to-blue-600 transform hover:scale-105 transition duration-300 ease-in-out"
             >
               Update Profile
             </button>
+
             {loadingUpdateProfile && <Loader />}
           </form>
         </div>
@@ -211,7 +212,7 @@ const Profile = () => {
                     </td>
                     <td className="py-2 px-4 border-b text-gray-700">
                       <Link to={`/order/${order._id}`}>
-                        <button className="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600 transition duration-200">
+                        <button className="bg-gradient-to-r from-green-400 to-green-500 text-white px-3 py-2 rounded-lg shadow-md hover:from-green-500 hover:to-green-600 hover:shadow-lg transform hover:scale-105 transition duration-300 ease-in-out">
                           Details
                         </button>
                       </Link>

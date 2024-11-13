@@ -1,15 +1,21 @@
-import { Outlet } from "react-router-dom";
-import Sidebar from "../components/Sidebar";
+import { Navigate, Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+
 const AdminLayout = () => {
-  return (
-    <div className="flex">
-      <div className="basis-[20%] h-screen">
-        <Sidebar />
-      </div>
-      <div className="basis-[75%] h-screen overflow-y-auto">
+  const { userInfo } = useSelector((state) => state.auth);
+
+  return userInfo && userInfo.isAdmin ? (
+    <div>
+      <Header />
+      <main className="container mx-auto my-10">
         <Outlet />
-      </div>
+      </main>
+      <Footer />
     </div>
+  ) : (
+    <Navigate to="/login" replace />
   );
 };
 

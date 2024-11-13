@@ -1,10 +1,11 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Message from "../../components/Message";
 import Loader from "../../components/Loader";
 import {
   useGetOrderDetailsQuery,
   useGetPayPalClientIdQuery,
   usePayOrderMutation,
+  useDeliverOrderMutation,
 } from "../../slices/orderApiSlice";
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 import { toast } from "react-toastify";
@@ -29,6 +30,9 @@ const Order = () => {
     isLoading: loadingPayPal,
     error: errorPayPal,
   } = useGetPayPalClientIdQuery();
+
+  const [deliverOrder, { isLoading: loadingDeliver }] =
+    useDeliverOrderMutation();
 
   useEffect(() => {
     if (!errorPayPal && !loadingPayPal && paypal.clientId) {
@@ -83,6 +87,16 @@ const Order = () => {
         return orderID;
       });
   }
+
+  const deliverOrderHandler = async () => {
+    try {
+      await deliverOrder(orderId);
+      refetch();
+      toast.success("Order is delivered");
+    } catch (error) {
+      toast.error(error.data.message || error.error);
+    }
+  };
 
   return isLoading ? (
     <Loader />
@@ -208,6 +222,17 @@ const Order = () => {
                 </div>
               </div>
             )}
+          </div>
+        )}
+        {loadingDeliver && <Loader />}
+        {userInfo && userInfo.isAdmin && order.isPaid && !order.isDelivered && (
+          <div className="flex justify-center items-center">
+            <button
+              onClick={deliverOrderHandler}
+              className="bg-green-500 text-white px-6 py-2 rounded-lg shadow-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-opacity-75 transition duration-200 ease-in-out transform hover:scale-105"
+            >
+              Mark As Delivered
+            </button>
           </div>
         )}
       </div>

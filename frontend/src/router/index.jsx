@@ -8,7 +8,6 @@ import Home from "../pages/home/Home";
 import Login from "../pages/account/Login";
 import Register from "../pages/account/Register";
 import AdminLayout from "../layouts/AdminLayout";
-import AProduct from "../pages/admin/AProduct";
 import Cart from "../pages/cart/Cart";
 import ProductDetail from "../pages/product/ProductDetail";
 import ErrorPage from "../pages/error/Error";
@@ -18,6 +17,7 @@ import PrivateRoute from "../components/PrivateRoute";
 import Payment from "../pages/payment/Payment";
 import PlaceOrder from "../pages/order/PlaceOrder";
 import Order from "../pages/order/Order";
+import OrderList from "../pages/admin/OrderList";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -38,8 +38,9 @@ const router = createBrowserRouter(
           <Route path="order/:id" element={<Order />} />
         </Route>
       </Route>
-      <Route path="admin" element={<AdminLayout />}>
-        <Route path="product" element={<AProduct />} />
+
+      <Route path="" element={<AdminLayout />}>
+        <Route path="/admin/orderlist" element={<OrderList />} />
       </Route>
     </>
   )
