@@ -18,6 +18,8 @@ import Payment from "../pages/payment/Payment";
 import PlaceOrder from "../pages/order/PlaceOrder";
 import Order from "../pages/order/Order";
 import OrderList from "../pages/admin/OrderList";
+import ProductList from "../pages/admin/ProductList";
+import EditProduct from "../pages/admin/EditProduct";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -40,7 +42,9 @@ const router = createBrowserRouter(
       </Route>
 
       <Route path="" element={<AdminLayout />}>
+        <Route path="admin/productlist" element={<ProductList />} />
         <Route path="/admin/orderlist" element={<OrderList />} />
+        <Route path="/admin/product/:id/edit" element={<EditProduct />} />
       </Route>
     </>
   )

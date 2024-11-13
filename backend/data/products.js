@@ -69,35 +69,5 @@ const products = [
     price: 19.99,
     countInStock: 15,
   },
-  {
-    name: "Duck",
-    image: "/image/img8.jpg",
-    description:
-      "Chess is a game for smart people. It is a wise and powerful scholar, known for his exceptional combat skills and intelligence.",
-    brand: "Chess",
-    category: "Figure",
-    price: 19.99,
-    countInStock: 15,
-  },
-  {
-    name: "Duck",
-    image: "/image/img8.jpg",
-    description:
-      "Chess is a game for smart people. It is a wise and powerful scholar, known for his exceptional combat skills and intelligence.",
-    brand: "Chess",
-    category: "Figure",
-    price: 19.99,
-    countInStock: 15,
-  },
-  {
-    name: "Duck",
-    image: "/image/img8.jpg",
-    description:
-      "Chess is a game for smart people. It is a wise and powerful scholar, known for his exceptional combat skills and intelligence.",
-    brand: "Chess",
-    category: "Figure",
-    price: 19.99,
-    countInStock: 15,
-  },
 ];
 export default products;
