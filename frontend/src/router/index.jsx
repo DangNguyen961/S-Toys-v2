@@ -20,6 +20,8 @@ import Order from "../pages/order/Order";
 import OrderList from "../pages/admin/OrderList";
 import ProductList from "../pages/admin/ProductList";
 import EditProduct from "../pages/admin/EditProduct";
+import UserList from "../pages/admin/UserList";
+import EditUser from "../pages/admin/EditUser";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -45,6 +47,8 @@ const router = createBrowserRouter(
         <Route path="admin/productlist" element={<ProductList />} />
         <Route path="/admin/orderlist" element={<OrderList />} />
         <Route path="/admin/product/:id/edit" element={<EditProduct />} />
+        <Route path="/admin/userlist" element={<UserList />} />
+        <Route path="/admin/user/:id/edit" element={<EditUser />} />
       </Route>
     </>
   )
