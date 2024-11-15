@@ -19,6 +19,9 @@ const Product = ({ product }) => {
       <p className="text-sm font-semibold font-mono text-gray-600 mt-1 transition duration-300 ease-in-out hover:text-[#10b465]">
         ${product.price}
       </p>
+      <p className="text-sm font-semibold font-mono text-gray-600 mt-1 transition duration-300 ease-in-out hover:text-[#10b465]">
+        {product.numReviews} reviews
+      </p>
     </div>
   );
 };

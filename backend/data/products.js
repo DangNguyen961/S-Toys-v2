@@ -7,6 +7,7 @@ const products = [
     brand: "Mihoyo",
     category: "Figure",
     price: 29.99,
+    numReviews: 10,
     countInStock: 10,
   },
   {
@@ -17,6 +18,7 @@ const products = [
     brand: "Mihoyo",
     category: "Figure",
     price: 59.99,
+    numReviews: 10,
     countInStock: 20,
   },
   {
@@ -27,6 +29,7 @@ const products = [
     brand: "Lego",
     category: "Lego",
     price: 39.99,
+    numReviews: 10,
     countInStock: 0,
   },
   {
@@ -37,6 +40,7 @@ const products = [
     brand: "Lamp",
     category: "Decoration",
     price: 49.99,
+    numReviews: 10,
     countInStock: 5,
   },
   {
@@ -47,6 +51,7 @@ const products = [
     brand: "Chess",
     category: "Game",
     price: 29.99,
+    numReviews: 10,
     countInStock: 15,
   },
   {
@@ -57,6 +62,7 @@ const products = [
     brand: "Chess",
     category: "Figure",
     price: 29.99,
+    numReviews: 10,
     countInStock: 15,
   },
   {
@@ -67,6 +73,7 @@ const products = [
     brand: "Chess",
     category: "Figure",
     price: 19.99,
+    numReviews: 10,
     countInStock: 15,
   },
 ];
