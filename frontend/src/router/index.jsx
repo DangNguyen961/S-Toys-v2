@@ -22,13 +22,19 @@ import ProductList from "../pages/admin/ProductList";
 import EditProduct from "../pages/admin/EditProduct";
 import UserList from "../pages/admin/UserList";
 import EditUser from "../pages/admin/EditUser";
+import IntroProduct from "../pages/home/IntroProduct";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<RootLayout />}>
         <Route index={true} element={<Home />} />
-        <Route path="page/:pageNumber" element={<Home />} />
+        <Route path="page/:pageNumber" element={<IntroProduct />} />
+        <Route path="search/:keyword" element={<IntroProduct />} />
+        <Route
+          path="search/:keyword/page/:pageNumber"
+          element={<IntroProduct />}
+        />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="cart" element={<Cart />} />

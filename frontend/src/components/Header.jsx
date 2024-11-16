@@ -7,6 +7,7 @@ import { NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { useLogoutMutation } from "../slices/usersApiSlice.js";
 import { logout } from "../slices/authSlice.js";
+import Search from "./Search.jsx";
 
 const Header = () => {
   const [searchVisible, setSearchVisible] = useState(false);
@@ -49,23 +50,7 @@ const Header = () => {
             </Link>
           </div>
           <div className="flex items-center">
-            <button
-              onClick={toggleSearch}
-              className="w-full font-mono gap-2 px-3 py-2 bg-gradient-to-r from-blue-300 to-teal-200 text-black font-semibold text-base rounded-md shadow-lg hover:from-teal-200 hover:to-blue-300 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-200"
-            >
-              {searchVisible ? (
-                <i className="bi bi-x-lg"></i>
-              ) : (
-                <i className="bi bi-search"></i>
-              )}
-            </button>
-            {searchVisible && (
-              <input
-                type="text"
-                placeholder="Search..."
-                className="ml-4 p-2 rounded-md font-mono border border-gray-300"
-              />
-            )}
+            <Search />
             <Link
               to="/"
               className="ml-4 font-semibold no-underline font-mono text-lg text-white transition duration-200 ease-in-out relative before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-[2px] before:bg-white before:transition-all before:duration-300 hover:before:w-full hover:text-[#74CEB7]"

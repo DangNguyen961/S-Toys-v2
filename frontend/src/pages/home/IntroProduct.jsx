@@ -1,4 +1,3 @@
-import { data } from "autoprefixer";
 import Product from "../../components/Product.jsx";
 import { useGetProductsQuery } from "../../slices/productsApiSlice.js";
 import Loader from "../../components/Loader.jsx";
@@ -7,11 +6,14 @@ import { useParams } from "react-router-dom";
 import Paginate from "../../components/Paginate.jsx";
 
 const IntroProduct = () => {
-  const { pageNumber } = useParams();
-  const { data, error, isLoading } = useGetProductsQuery({ pageNumber });
+  const { keyword, pageNumber } = useParams();
+  const { data, error, isLoading } = useGetProductsQuery({
+    keyword,
+    pageNumber,
+  });
 
   return (
-    <div className="mb-12 px-4">
+    <div className="mb-12 mt-8 px-4">
       <div className="font-mono text-center mb-10 max-w-[600px] mx-auto">
         <h1 data-aos="fade-up" className="text-5xl font-bold text-[#001b5e]">
           Our Products
@@ -49,7 +51,11 @@ const IntroProduct = () => {
             data-aos="fade-up"
             data-aos-delay={data.aosDelay}
           >
-            <Paginate pages={data.pages} page={data.page} />
+            <Paginate
+              pages={data.pages}
+              page={data.page}
+              keyword={keyword ? keyword : ""}
+            />
           </div>
         </>
       )}
