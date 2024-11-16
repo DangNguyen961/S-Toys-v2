@@ -1,19 +1,14 @@
+import { data } from "autoprefixer";
 import Product from "../../components/Product.jsx";
 import { useGetProductsQuery } from "../../slices/productsApiSlice.js";
 import Loader from "../../components/Loader.jsx";
 import Message from "../../components/Message.jsx";
 import { useParams } from "react-router-dom";
 import Paginate from "../../components/Paginate.jsx";
-import { useEffect } from "react";
-import AOS from "aos";
 
 const IntroProduct = () => {
   const { pageNumber } = useParams();
   const { data, error, isLoading } = useGetProductsQuery({ pageNumber });
-
-  useEffect(() => {
-    AOS.refresh();
-  }, [data]);
 
   return (
     <div className="mb-12 px-4">
@@ -50,9 +45,9 @@ const IntroProduct = () => {
             ))}
           </div>
           <div
+            className="mt-8"
             data-aos="fade-up"
             data-aos-delay={data.aosDelay}
-            className="mt-8 flex justify-center items-center"
           >
             <Paginate pages={data.pages} page={data.page} />
           </div>

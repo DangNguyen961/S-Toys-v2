@@ -1,10 +1,10 @@
 import Intro from "./Intro";
 import IntroProduct from "./IntroProduct";
-
-import { useState } from "react";
+// import { useState } from "react";
 
 const Body = () => {
-  const [pageNumber, setPageNumber] = useState(1);
+  // const [pageNumber, setPageNumber] = useState(1);
+
   return (
     <div>
       <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-r from-blue-200 to-teal-100">
@@ -36,7 +36,7 @@ const Body = () => {
         <Intro />
       </div>
       <div>
-        <IntroProduct key={pageNumber || 1} />
+        <IntroProduct />
       </div>
     </div>
   );
