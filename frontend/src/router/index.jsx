@@ -28,6 +28,7 @@ const router = createBrowserRouter(
     <>
       <Route path="/" element={<RootLayout />}>
         <Route index element={<Home />} />
+        <Route path="page/:pageNumber" element={<Home />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
         <Route path="cart" element={<Cart />} />
@@ -45,6 +46,7 @@ const router = createBrowserRouter(
 
       <Route path="" element={<AdminLayout />}>
         <Route path="admin/productlist" element={<ProductList />} />
+        <Route path="admin/productlist/:pageNumber" element={<ProductList />} />
         <Route path="/admin/orderlist" element={<OrderList />} />
         <Route path="/admin/product/:id/edit" element={<EditProduct />} />
         <Route path="/admin/userlist" element={<UserList />} />

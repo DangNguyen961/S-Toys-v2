@@ -1,5 +1,5 @@
 import { FaEdit, FaPlus, FaTrash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import Message from "../../components/Message";
 import Loader from "../../components/Loader";
 import {
@@ -8,9 +8,13 @@ import {
   useDeleteProductMutation,
 } from "../../slices/productsApiSlice";
 import { toast } from "react-toastify";
+import Paginate from "../../components/Paginate";
 
 const ProductListScreen = () => {
-  const { data: products, isLoading, error, refetch } = useGetProductsQuery();
+  const { pageNumber } = useParams();
+  const { data, isLoading, error, refetch } = useGetProductsQuery({
+    pageNumber,
+  });
   const [createProduct, { isLoading: loadingCreate }] =
     useCreateProductMutation();
   const [deleteProduct, { isLoading: loadingDelete }] =
@@ -85,7 +89,7 @@ const ProductListScreen = () => {
               </tr>
             </thead>
             <tbody>
-              {products.map((product) => (
+              {data.products.map((product) => (
                 <tr
                   key={product._id}
                   className="border-t hover:bg-gray-100 transition duration-150"
@@ -112,6 +116,9 @@ const ProductListScreen = () => {
               ))}
             </tbody>
           </table>
+          <div className="mt-8 flex justify-center items-center">
+            <Paginate pages={data.pages} page={data.page} isAdmin={true} />
+          </div>
         </div>
       )}
     </div>
