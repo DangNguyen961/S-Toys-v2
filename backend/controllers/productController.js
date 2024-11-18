@@ -5,7 +5,7 @@ import Product from "../models/productModel.js";
 // @route   GET /api/products
 // @access  Public
 const getProducts = asyncHandler(async (req, res) => {
-  const pageSize = 5;
+  const pageSize = 10;
   const page = Number(req.query.pageNumber) || 1;
 
   const keyword = req.query.keyword
@@ -38,15 +38,15 @@ const getProductById = asyncHandler(async (req, res) => {
 // @access Private/Admin
 const createProduct = asyncHandler(async (req, res) => {
   const product = new Product({
-    name: "Sample name",
+    name: "New Product",
     price: 0,
     user: req.user._id,
     image: "/image/avt.jpg",
-    brand: "Sample brand",
-    category: "Sample category",
+    brand: "Brand",
+    category: "Category",
     countInStock: 0,
     numReviews: 0,
-    description: "Sample description",
+    description: "Description",
   });
 
   const createdProduct = await product.save();

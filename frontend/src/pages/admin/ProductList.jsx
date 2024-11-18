@@ -10,7 +10,7 @@ import {
 import { toast } from "react-toastify";
 import Paginate from "../../components/Paginate";
 
-const ProductListScreen = () => {
+const ProductList = () => {
   const { pageNumber } = useParams();
   const { data, isLoading, error, refetch } = useGetProductsQuery({
     pageNumber,
@@ -53,7 +53,7 @@ const ProductListScreen = () => {
           className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-700 hover:shadow-lg transform hover:scale-105 transition duration-200"
         >
           <FaPlus />
-          <span className="font-mono">Create Product</span>
+          <span className="font-mono">Create New Product</span>
         </button>
       </div>
 
@@ -125,4 +125,4 @@ const ProductListScreen = () => {
   );
 };
 
-export default ProductListScreen;
+export default ProductList;

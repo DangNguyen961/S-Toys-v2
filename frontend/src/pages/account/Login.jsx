@@ -33,7 +33,8 @@ const Login = () => {
       const res = await login({ email, password }).unwrap();
       dispatch(setCredentials({ ...res }));
       navigate(redirect);
-      toast.success("Login successful");
+      const { name } = res;
+      toast.success(`Hello ${name}`);
     } catch (error) {
       toast.error(error?.data?.message || error.error);
     }
