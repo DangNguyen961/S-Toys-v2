@@ -15,11 +15,12 @@ const IntroProduct = () => {
   return (
     <div className="mb-12 mt-8 px-4">
       <div className="font-mono text-center mb-10 max-w-[600px] mx-auto">
-        <h1 data-aos="fade-up" className="text-5xl font-bold text-[#001b5e]">
+        <h1 data-aos="zoom-in" className="text-5xl font-bold text-[#001b5e]">
           Our Products
         </h1>
         <p
-          data-aos="fade-up"
+          data-aos="zoom-in"
+          data-aos-delay="200"
           className="font-semibold text-lg text-gray-600 mt-2"
         >
           A selection of unique items for you
@@ -35,20 +36,21 @@ const IntroProduct = () => {
       ) : (
         <>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-8 place-items-center">
-            {data.products.map((product) => (
+            {data.products.map((product, index) => (
               <div
-                data-aos="fade-up"
-                data-aos-delay={data.aosDelay}
+                data-aos="zoom-in-up"
+                data-aos-delay={(index + 1) * 100}
                 key={product._id}
-                className="bg-white p-4 rounded-lg shadow-lg transform transition duration-500 hover:scale-105 hover:shadow-2xl"
+                className="bg-white p-4 rounded-lg shadow-lg transform transition duration-500 hover:rotate-1 hover:scale-105 hover:brightness-110"
               >
                 <Product product={product} />
               </div>
             ))}
           </div>
+
           <div
             className="mt-8"
-            data-aos="fade-up"
+            data-aos="zoom-in-down"
             data-aos-delay={data.aosDelay}
           >
             <Paginate

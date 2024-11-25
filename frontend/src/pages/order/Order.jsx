@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Message from "../../components/Message";
 import Loader from "../../components/Loader";
 import {
@@ -34,6 +34,8 @@ const Order = () => {
   const [deliverOrder, { isLoading: loadingDeliver }] =
     useDeliverOrderMutation();
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     if (!errorPayPal && !loadingPayPal && paypal.clientId) {
       // Kiểm tra paypal có giá trị và có clientId không để load script paypal
@@ -64,6 +66,7 @@ const Order = () => {
         await payOrder({ orderId, details });
         refetch();
         toast.success("Order is paid");
+        navigate(`/`);
       } catch (error) {
         toast.error(error.data.message || error.error);
       }
